@@ -74,7 +74,7 @@ public class MemberController {
         if (member == null) {
             System.out.println("error!");
         } else {
-            System.out.println("good!");
+            System.out.println("good! delete");
         }
         return "redirect:/";
     }
