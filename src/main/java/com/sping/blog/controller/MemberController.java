@@ -67,7 +67,7 @@ public class MemberController {
         return "redirect:/";
     }
 
-    // user delete
+    // user deleted
     @GetMapping("/member/delete/{userid}")
     public String deleteMember(@PathVariable("userid") Long userid) {
         Member member = memberService.memberDelete(userid);
