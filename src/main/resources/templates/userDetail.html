@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <td>user id</td>
+        <td>name</td>
+        <td>phone</td>
+        <td>nickname</td>
+        <td>password</td>
+        <td>email</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.phone}"></td>
+        <td th:text="${user.nickname}"></td>
+        <td th:text="${user.password}"></td>
+        <td th:text="${user.email}"></td>
+    </tr>
+    </tbody>
+</table>
+<div>
+    <form method="post" th:action="@{/member/{userid}(userid=${user.id})}">
+        <label for="name">name</label>
+        <input type="text" id="name" name="name" th:placeholder="${user.name}"> <br/>
+        <label for="phone">phone</label>
+        <input type="text" id="phone" name="phone" th:placeholder="${user.phone}"> <br/>
+        <label for="nickname">nickname</label>
+        <input type="text" id="nickname" name="nickname" th:placeholder="${user.nickname}"> <br/>
+        <label for="password">password</label>
+        <input type="password" id="password" name="password" th:placeholder="${user.password}"> <br/>
+        <label for="email">email</label>
+        <input type="email" id="email" name="email" th:placeholder="${user.email}"> <br/>
+
+        <button type="submit">가입</button>
+    </form>
+</div>
+</body>
+</html>
