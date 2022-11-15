@@ -1,9 +1,11 @@
 package com.sping.blog.dto;
 
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
-public class MemberFormDTO {
+@Setter
+public class UserFormDTO {
     private String name;
 
     private String phone;
@@ -11,7 +13,7 @@ public class MemberFormDTO {
     private String password;
     private String email;
 
-    public MemberFormDTO(String name, String phone, String nickname, String password, String email) {
+    public UserFormDTO(String name, String phone, String nickname, String password, String email) {
         this.name = name;
         this.phone = phone;
         this.nickname = nickname;

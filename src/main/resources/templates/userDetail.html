@@ -28,7 +28,7 @@
     </tbody>
 </table>
 <div>
-    <form method="post" th:action="@{/member/{userid}(userid=${user.id})}">
+    <form method="post" th:action="@{/user/{userid}(userid=${user.id})}">
         <label for="name">name</label>
         <input type="text" id="name" name="name" th:placeholder="${user.name}"> <br/>
         <label for="phone">phone</label>

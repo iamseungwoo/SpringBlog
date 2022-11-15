@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
 <div>
-    <form method="post" action="/member/update">
-        <label for="id">id</label>
-        <input type="text" id="id" name="id"> <br />
+    <form method="post" th:action="@{/user/signUp}">
         <label for="name">name</label>
         <input type="text" id="name" name="name"> <br/>
         <label for="phone">phone</label>
