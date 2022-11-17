@@ -9,4 +9,4 @@ thymeleaf
 mariadb
 
 ## authenticated
-spring security, jwt
+spring security, session
