@@ -5,7 +5,10 @@ import com.sping.blog.dto.UserFormDTO;
 import com.sping.blog.entity.User;
 import com.sping.blog.service.UserService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.HttpRequestHandler;
@@ -100,5 +103,14 @@ public class UserController {
     @GetMapping("/access_denied")
     public String accessDenied() {
         return "/sign/access_denied";
+    }
+
+    @GetMapping("/logout")
+    public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null && auth.isAuthenticated()) {
+            new SecurityContextLogoutHandler().logout(request, response, auth);
+        }
+        return "redirect:/";
     }
 }

@@ -16,8 +16,3 @@ spring:
         format_sql: true
     defer-datasource-initialization: true
 
-jwt:
-  head: Authorization
-  secret: aWxvdmVuYWV1bmlsb3Zlc2V1bmd3d29vaWFtc2V1bmd3d29vbXltb3RoZXJmaWxuYW0K
-  token-in-validity-second: 86400
-

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -7,6 +7,22 @@
 <body>
 hello world
 <div>
+    <ul sec:authorize="!isAuthenticated()">
+        <li>
+
+            <a th:href="@{/user/signUp}">회원가입</a>
+        </li>
+        <li>
+            <a th:href="@{/user/signIn}">로그인</a>
+
+        </li>
+    </ul>
+    <ul sec:authorize="isAuthenticated()">
+        <li>
+            <a th:href="@{/user/logout}">로그아웃</a>
+        </li>
+    </ul>
+
 </div>
 </body>
 </html>
