@@ -1,4 +1,4 @@
-package com.sping.blog.dto;
+package com.sping.blog.dto.User;
 
 import lombok.Getter;
 import lombok.Setter;

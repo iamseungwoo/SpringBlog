@@ -24,6 +24,9 @@ hello world
         <li>
             <div th:text="${#authentication.name}"></div>
         </li>
+        <li>
+            <a th:href="@{/blog/{userid}(userid=${#authentication.name})}">내 블로그 가기</a>
+        </li>
     </ul>
 
 </div>

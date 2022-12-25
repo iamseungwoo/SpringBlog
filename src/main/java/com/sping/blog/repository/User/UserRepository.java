@@ -1,4 +1,4 @@
-package com.sping.blog.repository;
+package com.sping.blog.repository.User;
 
 import com.sping.blog.entity.User;
 

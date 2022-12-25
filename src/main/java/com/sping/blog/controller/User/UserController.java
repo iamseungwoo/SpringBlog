@@ -1,20 +1,16 @@
-package com.sping.blog.controller;
+package com.sping.blog.controller.User;
 
-import com.sping.blog.dto.SignInFormDTO;
-import com.sping.blog.dto.UserFormDTO;
+import com.sping.blog.dto.User.UserFormDTO;
 import com.sping.blog.entity.User;
-import com.sping.blog.service.UserService;
+import com.sping.blog.service.User.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.HttpRequestHandler;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;

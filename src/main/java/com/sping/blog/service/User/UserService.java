@@ -1,8 +1,8 @@
-package com.sping.blog.service;
+package com.sping.blog.service.User;
 
-import com.sping.blog.dto.UserFormDTO;
+import com.sping.blog.dto.User.UserFormDTO;
 import com.sping.blog.entity.User;
-import com.sping.blog.repository.UserRepository;
+import com.sping.blog.repository.User.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
