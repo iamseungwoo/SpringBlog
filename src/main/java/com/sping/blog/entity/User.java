@@ -1,6 +1,5 @@
 package com.sping.blog.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,24 +18,27 @@ import java.util.Collection;
 @AllArgsConstructor
 public class User implements UserDetails {
     @Id
-    @Column(name = "id")
+    @Column(name = "USER_ID")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "name")
+    @Column(name = "USER_NAME")
     private String name;
 
-    @Column(name = "phone")
+    @Column(name = "USER_PHONE")
     private String phone;
 
-    @Column(name = "nickname")
+    @Column(name = "USER_NICKNAME")
     private String nickname;
 
-    @Column(name = "password")
+    @Column(name = "USER_PASSWORD")
     private String password;
 
-    @Column(name = "email")
+    @Column(name = "USER_EMAIL")
     private String email;
+
+    @OneToOne(mappedBy = "user")
+    private Blog blog;
 
     @Override
     public String getUsername() {

@@ -21,6 +21,9 @@ hello world
         <li>
             <a th:href="@{/user/logout}">로그아웃</a>
         </li>
+        <li>
+            <div th:text="${#authentication.name}"></div>
+        </li>
     </ul>
 
 </div>
