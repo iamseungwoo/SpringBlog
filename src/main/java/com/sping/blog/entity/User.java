@@ -8,7 +8,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Table(name = "user")
@@ -39,6 +41,12 @@ public class User implements UserDetails {
 
     @OneToOne(mappedBy = "user")
     private Blog blog;
+
+    @OneToMany(mappedBy = "user")
+    private List<Like> likes = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    private List<Command> commands = new ArrayList<>();
 
     @Override
     public String getUsername() {

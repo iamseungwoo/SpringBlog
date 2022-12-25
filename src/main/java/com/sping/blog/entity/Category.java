@@ -10,24 +10,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "blog")
+@Table(name = "Category")
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
-public class Blog {
+public class Category {
     @Id
-    @Column(name = "BLOG_ID")
+    @Column(name = "CATEGORY_ID")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
 
-    @Column(name = "BLOG_NAME")
-    private String blogName;
+    @Column(name = "CATEGORY_NAME")
+    private String name;
 
-    @OneToOne
-    @JoinColumn(name = "USER_ID")
-    private User user;
-
-    @OneToMany(mappedBy = "blog")
+    @OneToMany(mappedBy = "category")
     private List<Post> posts = new ArrayList<>();
 }
