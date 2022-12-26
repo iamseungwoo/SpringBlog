@@ -3,6 +3,7 @@ package com.sping.blog.controller.Blog;
 import com.sping.blog.entity.User;
 import com.sping.blog.service.User.UserService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,10 +23,10 @@ public class BlogController {
         this.userService = userService;
     }
 
-    @GetMapping("/{userEmail}")
-    public String blogUserPage(@PathVariable("userEmail") String userEmail, Model model) {
-        User blogUser = (User) userService.loadUserByUsername(userEmail);
-        model.addAttribute("user", blogUser);
+    @GetMapping("")
+    public String blogUserPage(Model model) {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("username", ((UserDetails) principal).getUsername());
         return "blog/blogHome";
     }
 }

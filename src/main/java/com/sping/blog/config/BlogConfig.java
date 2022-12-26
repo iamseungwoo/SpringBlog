@@ -14,5 +14,5 @@ public class BlogConfig {
         this.em = em;
     }
 
-    
+
 }

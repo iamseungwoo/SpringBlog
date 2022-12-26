@@ -1,5 +1,6 @@
 package com.sping.blog.controller.User;
 
+import com.sping.blog.dto.Blog.BlogForm;
 import com.sping.blog.dto.User.UserFormDTO;
 import com.sping.blog.entity.User;
 import com.sping.blog.service.User.UserService;
@@ -107,6 +108,15 @@ public class UserController {
         if (auth != null && auth.isAuthenticated()) {
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
+        return "redirect:/";
+    }
+
+    @GetMapping("/blog")
+    public String blogForm() {
+        return "blog/createBlog";
+    }
+    @PostMapping("/blog")
+    public String createBlog(BlogForm blogFormDTO) {
         return "redirect:/";
     }
 }
