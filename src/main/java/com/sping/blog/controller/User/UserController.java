@@ -111,12 +111,5 @@ public class UserController {
         return "redirect:/";
     }
 
-    @GetMapping("/blog")
-    public String blogForm() {
-        return "blog/createBlog";
-    }
-    @PostMapping("/blog")
-    public String createBlog(BlogForm blogFormDTO) {
-        return "redirect:/";
-    }
+
 }
