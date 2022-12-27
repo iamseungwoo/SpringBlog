@@ -5,9 +5,14 @@
     <title>create blog page</title>
 </head>
 <body>
-<form method="post" action="/blog/create">
-    <label for="blogName">blog title!</label>
-    <input name="blogName" id="blogName" type="text">
-</form>
+<div>
+
+    <form method="post" th:action="@{/blog/create}">
+        <label for="blogName">blog title!</label>
+        <input name="blogName" id="blogName" type="text">
+
+        <button type="submit">create blog!</button>
+    </form>
+</div>
 </body>
 </html>

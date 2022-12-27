@@ -3,6 +3,7 @@ package com.sping.blog.controller.Blog;
 import com.sping.blog.dto.Blog.BlogForm;
 import com.sping.blog.entity.Blog;
 import com.sping.blog.entity.User;
+import com.sping.blog.service.Blog.BlogService;
 import com.sping.blog.service.User.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -20,10 +21,16 @@ import java.util.Optional;
 @RequestMapping("/blog")
 @Slf4j
 public class BlogController {
-    UserService userService;
+    BlogService blogService;
 
-    public BlogController(UserService userService) {
-        this.userService = userService;
+    public BlogController(BlogService blogService) {
+        this.blogService = blogService;
+    }
+
+    @GetMapping("")
+    public String userBlogPage(Model model) {
+        User loginUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
     }
 
     @GetMapping("/create")
@@ -36,7 +43,9 @@ public class BlogController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Blog blog = new Blog();
         blog.setBlogName(blogFormDTO.getBlogName());
+
         blog.setUser(user);
+        blogService.saveBlog(blog);
         return "redirect:/";
     }
 }
