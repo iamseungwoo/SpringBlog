@@ -39,9 +39,6 @@ public class User implements UserDetails {
     @Column(name = "USER_EMAIL")
     private String email;
 
-    @OneToOne(mappedBy = "user")
-    private Blog blog;
-
     @OneToMany(mappedBy = "user")
     private List<Like> likes = new ArrayList<>();
 

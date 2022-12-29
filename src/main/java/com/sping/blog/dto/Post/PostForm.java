@@ -1,5 +1,15 @@
 package com.sping.blog.dto.Post;
 
-public class PostForm {
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+public class PostForm {
+    private String title;
+    private String text;
 }

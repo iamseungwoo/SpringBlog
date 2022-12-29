@@ -19,7 +19,7 @@ public class Blog {
     @Id
     @Column(name = "BLOG_ID")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
 
     @Column(name = "BLOG_NAME")
     private String blogName;

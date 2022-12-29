@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -30,7 +31,9 @@ public class BlogController {
     @GetMapping("")
     public String userBlogPage(Model model) {
         User loginUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
+        List<Blog> blogs = blogService.findUserBlog(loginUser.getId());
+        model.addAttribute("blogs", blogs);
+        return "/blog/userBlog";
     }
 
     @GetMapping("/create")
@@ -41,11 +44,14 @@ public class BlogController {
     @PostMapping("/create")
     public String createBlog(BlogForm blogFormDTO) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        Blog blog = new Blog();
-        blog.setBlogName(blogFormDTO.getBlogName());
-
-        blog.setUser(user);
-        blogService.saveBlog(blog);
+        blogService.saveBlog(user, blogFormDTO);
         return "redirect:/";
+    }
+
+    @GetMapping("/{blogId}")
+    public String blogPage(@PathVariable("blogId") Long blogId, Model model) {
+        Blog blog = blogService.getById(blogId);
+        model.addAttribute("blog", blog);
+        return "blog/detailPage";
     }
 }
