@@ -17,4 +17,8 @@ public class JpaPostRepository implements PostRepository{
         em.persist(post);
     }
 
+    @Override
+    public Post getPostById(Long postId) {
+        return em.find(Post.class, postId);
+    }
 }

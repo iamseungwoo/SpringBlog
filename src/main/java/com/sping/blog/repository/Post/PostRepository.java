@@ -6,4 +6,6 @@ import javax.persistence.EntityManager;
 
 public interface PostRepository {
     public void savePost(Post post);
+
+    Post getPostById(Long postId);
 }

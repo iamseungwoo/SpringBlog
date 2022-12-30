@@ -30,4 +30,8 @@ public class PostService {
         post.getBlog().addPost(post);
         postRepository.savePost(post);
     }
+
+    public Post getPost(Long postId) {
+        return postRepository.getPostById(postId);
+    }
 }
