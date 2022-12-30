@@ -30,4 +30,9 @@ public class PostController {
         postService.createPost(blogId, postForm);
         return "redirect:/blog/" + blogId;
     }
+
+    @GetMapping("/{blogId}/delete/{postId}")
+    public String postDelete(@PathVariable("postId") Long postId, @PathVariable("blogId") Long blogId) {
+        return "redirect:/blog/" + blogId;
+    }
 }
