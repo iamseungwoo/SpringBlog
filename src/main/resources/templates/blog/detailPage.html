@@ -7,5 +7,14 @@
 <body>
     <h1 th:text="${blog.blogName}"></h1>
     <a th:href="@{/posts/{blogId}(blogId=${blogId})}">글쓰기</a>
+    <div>
+        <ul th:each="post : ${blog.getPosts()}">
+            <li>
+                <a th:href="@{/posts/{blogId}(blogId=${blog.id})/{postId}(postId=${post.id})}">
+                    <h3 th:text="${post.title}"></h3>
+                </a>
+            </li>
+        </ul>
+    </div>
 </body>
 </html>
