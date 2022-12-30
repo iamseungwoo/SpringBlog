@@ -30,4 +30,11 @@ public class Blog {
 
     @OneToMany(mappedBy = "blog")
     private List<Post> posts = new ArrayList<>();
+
+    public void addPost(Post post) {
+        this.posts.add(post);
+        if (post.getBlog() != this) {
+            post.setBlog(this);
+        }
+    }
 }

@@ -27,7 +27,7 @@ public class PostService {
         post.setTitle(postForm.getTitle());
         post.setText(postForm.getText());
         post.setBlog(blog);
-
+        post.getBlog().addPost(post);
         postRepository.savePost(post);
     }
 }

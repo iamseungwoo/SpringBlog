@@ -50,4 +50,12 @@ public class Post {
 
     @OneToMany(mappedBy = "post")
     private List<Tag> tags = new ArrayList<>();
+
+    public void setBlog(Blog blog) {
+        this.blog = blog;
+
+        if (!blog.getPosts().contains(this)) {
+            blog.getPosts().add(this);
+        }
+    }
 }
