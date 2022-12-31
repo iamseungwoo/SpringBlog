@@ -13,6 +13,9 @@
                 <a th:href="@{/posts/{blogId}(blogId=${blog.id})/{postId}(postId=${post.id})}">
                     <h3 th:text="${post.title}"></h3>
                 </a>
+                <a th:href="@{/posts/{blogId}/delete/{postId}(blogId=${blog.id}, postId=${post.id})}">
+                    삭제하기
+                </a>
             </li>
         </ul>
     </div>
