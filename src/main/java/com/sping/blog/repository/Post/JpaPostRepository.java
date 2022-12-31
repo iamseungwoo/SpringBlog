@@ -21,4 +21,9 @@ public class JpaPostRepository implements PostRepository{
     public Post getPostById(Long postId) {
         return em.find(Post.class, postId);
     }
+
+    @Override
+    public void deletePost(Post post) {
+        em.remove(post);
+    }
 }

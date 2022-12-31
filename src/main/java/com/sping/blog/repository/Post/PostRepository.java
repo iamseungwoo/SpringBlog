@@ -8,4 +8,6 @@ public interface PostRepository {
     public void savePost(Post post);
 
     Post getPostById(Long postId);
+
+    public void deletePost(Post post);
 }

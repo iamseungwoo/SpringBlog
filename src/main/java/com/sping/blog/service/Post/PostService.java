@@ -34,4 +34,10 @@ public class PostService {
     public Post getPost(Long postId) {
         return postRepository.getPostById(postId);
     }
+
+    public void removePostById(Long postId) {
+        Post post = postRepository.getPostById(postId);
+        postRepository.deletePost(post);
+    }
+
 }
