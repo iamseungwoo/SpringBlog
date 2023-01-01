@@ -26,4 +26,12 @@ public class Category {
 
     @OneToMany(mappedBy = "category")
     private List<Post> posts = new ArrayList<>();
+
+    public void setPosts(Post post) {
+        this.posts.add(post);
+
+        if (post.getCategory() != this) {
+            post.setCategory(this);
+        }
+    }
 }

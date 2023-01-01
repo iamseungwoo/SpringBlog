@@ -58,4 +58,12 @@ public class Post {
             blog.getPosts().add(this);
         }
     }
+
+    public void setCategory(Category category) {
+        this.category = category;
+
+        if (!category.getPosts().contains(this)) {
+            category.getPosts().add(this);
+        }
+    }
 }
