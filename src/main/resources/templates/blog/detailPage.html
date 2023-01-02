@@ -16,6 +16,9 @@
                 <a th:href="@{/posts/{blogId}/delete/{postId}(blogId=${blog.id}, postId=${post.id})}">
                     삭제하기
                 </a>
+                <a th:href="@{/posts/{blogId}/update/{postId}(blogId=${blog.id}, postId=${post.id})}">
+                    글 수정
+                </a>
             </li>
         </ul>
     </div>

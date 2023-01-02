@@ -40,4 +40,11 @@ public class PostService {
         postRepository.deletePost(post);
     }
 
+    public void updatePost(Long postId, PostForm postDto) {
+        Post post = postRepository.getPostById(postId);
+        post.setTitle(postDto.getTitle());
+        post.setText(postDto.getText());
+
+        postRepository.savePost(post);
+    }
 }

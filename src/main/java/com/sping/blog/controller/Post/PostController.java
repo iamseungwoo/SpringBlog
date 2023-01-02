@@ -45,4 +45,19 @@ public class PostController {
         postService.removePostById(postId);
         return "redirect:/blog/" + blogId;
     }
+
+    @GetMapping("/{blogId}/update/{postId}")
+    public String postUpdate(@PathVariable("postId") Long postId, Model model) {
+        Post post = postService.getPost(postId);
+        model.addAttribute("post", post);
+
+        return "/posts/updatePage";
+    }
+
+    @PostMapping("/{blogId}/update/{postId}")
+    public String postUpdate(@PathVariable("postId") Long postId, @PathVariable("blogId") Long blogId, PostForm postDto) {
+        postService.updatePost(postId, postDto);
+
+        return "redirect:/blog/" + blogId;
+    }
 }
