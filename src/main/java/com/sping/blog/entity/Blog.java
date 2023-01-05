@@ -28,13 +28,20 @@ public class Blog {
     @JoinColumn(name = "USER_ID")
     private User user;
 
-    @OneToMany(mappedBy = "blog")
+    @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "blog")
     private List<Post> posts = new ArrayList<>();
 
     public void addPost(Post post) {
         this.posts.add(post);
         if (post.getBlog() != this) {
             post.setBlog(this);
+        }
+    }
+
+    public void setUser(User user) {
+        if (this.user == null) {
+            this.user = user;
+            this.user.setBlog(this);
         }
     }
 }

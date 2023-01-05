@@ -6,5 +6,5 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CategoryDto {
-    private String name;s
+    private String name;
 }

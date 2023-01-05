@@ -31,13 +31,16 @@ public class BlogController {
     @GetMapping("")
     public String userBlogPage(Model model) {
         User loginUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        List<Blog> blogs = blogService.findUserBlog(loginUser.getId());
-        model.addAttribute("blogs", blogs);
+        model.addAttribute("blog", loginUser.getBlog());
         return "/blog/userBlog";
     }
 
     @GetMapping("/create")
     public String blogForm(Model model) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (user.getBlog() != null)  {
+            return "redirect:/";
+        }
         return "blog/createBlog";
     }
 
@@ -53,5 +56,13 @@ public class BlogController {
         Blog blog = blogService.getById(blogId);
         model.addAttribute("blog", blog);
         return "blog/detailPage";
+    }
+
+    @GetMapping("/delete/{blogId}")
+    public String deleteBlog(@PathVariable("blogId") Long blogId) {
+        blogService.blogDeleteById(blogId);
+        User curUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        curUser.setBlog(null);
+        return "redirect:/";
     }
 }

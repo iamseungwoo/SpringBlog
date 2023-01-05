@@ -40,7 +40,7 @@ public class PostController {
         return "/posts/detailPage";
     }
 
-    @GetMsapping("/{blogId}/delete/{postId}")
+    @GetMapping("/{blogId}/delete/{postId}")
     public String postDelete(@PathVariable("postId") Long postId, @PathVariable("blogId") Long blogId) {
         postService.removePostById(postId);
         return "redirect:/blog/" + blogId;

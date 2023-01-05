@@ -27,6 +27,12 @@ public class JpaBlogRepository implements BlogRepository {
     }
 
     @Override
+    public void delete(Blog blog) {
+        blog.getUser().setBlog(null);
+        em.remove(blog);
+    }
+
+    @Override
     public Blog findById(Long id) {
         return em.find(Blog.class, id);
     }

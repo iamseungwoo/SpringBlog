@@ -10,14 +10,14 @@
     <thead>
     <tr>
         <td>blog name</td>
-        <br>
+
     </tr>
     </thead>
     <tbody>
-    <tr th:each="blog : ${blogs}">
-<!--        <td th:text="${blog.blogName}"></td>-->
+    <tr>
         <td>
             <a th:href="@{|/blog/${blog.id}|}"><h3 th:text="${blog.blogName}"></h3></a>
+            <a th:href="@{|/blog/delete/${blog.id}|}">delete blog</a>
         </td>
     </tr>
     </tbody>

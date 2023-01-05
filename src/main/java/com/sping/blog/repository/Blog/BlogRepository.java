@@ -10,4 +10,6 @@ public interface BlogRepository {
 
     public Blog findById(Long id);
     public List<Blog> findBlogsByUserPk(Long pk);
+
+    public void delete(Blog blog);
 }

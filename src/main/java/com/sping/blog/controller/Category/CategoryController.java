@@ -15,7 +15,7 @@ public class CategoryController {
     }
 
     @PostMapping("/create")
-    public String cresateCategory(CategoryDto categoryDto) {
+    public String createCategory(CategoryDto categoryDto) {
         return "redirect:/category";
     }
 }

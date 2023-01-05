@@ -45,6 +45,9 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user")
     private List<Command> commands = new ArrayList<>();
 
+    @OneToOne(cascade = {CascadeType.REMOVE}, orphanRemoval = true, mappedBy = "user")
+    private Blog blog;
+
     @Override
     public String getUsername() {
         return this.email;
@@ -73,5 +76,13 @@ public class User implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
+    }
+
+    public void setBlog(Blog blog) {
+        if (this.blog == null) {
+            this.blog = blog;
+        } else if (blog == null) {
+            this.blog = null;
+        }
     }
 }
